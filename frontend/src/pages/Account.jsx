@@ -50,14 +50,24 @@ const Account = ({ user }) => {
               Logout
             </button>
           </div>
-
-          <div className="mt-4 flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap w-full gap-4 m-4">
+      {userPins && userPins.length > 0 ? (
+        userPins.map((e, i) => (
+          <div key={i} className="p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+            <PinCard pin={e} />
+          </div>
+        ))
+      ) : (
+        <p>No Pins Yet...</p>
+      )}
+    </div>
+          {/* <div className="mt-4 flex flex-wrap justify-center gap-4">
             {userPins && userPins.length > 0 ? (
               userPins.map((e) => <PinCard key={e._id} pin={e} />)
             ) : (
               <p>No Pin Yet</p>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
